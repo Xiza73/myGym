@@ -1,0 +1,78 @@
+.fondo-rana{
+    background: url("../img/rana1.jpg");
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+#head1{
+    color: snow;
+}
+
+.fondo{
+    background: red;
+    color: snow;
+}
+.borde{
+    border: 1px #000 solid;
+    text-align: center;
+    height: 50px;
+}
+.color1{
+    background: chocolate;
+}
+.color2{
+    background: coral;
+}
+.color3{
+    background: cornsilk;
+}
+.color4{
+    background: darkgoldenrod;
+}
+.tamaño{
+    width: 550px;
+    height: 350px;
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+}
+.dos{
+    width: 20%;
+}
+.tres{
+    width: 30%;
+}
+.enmarcado{
+    width: 80%;
+    padding: 5%;
+}
+img{
+    display:block;
+    margin:auto;
+}
+
+.contenedor{
+    width: 80%;
+    background: darkgoldenrod;
+    padding: 20px;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; 
+    /* conserva el tamaño (responsive) */
+    justify-content: space-around;
+    align-items: center;
+}
+
+.hijo{
+    width: 200px;
+    height: 100px;
+    background: darkgray;
+    text-align: center;
+    font-size: 40px;
+    padding: 20px;
+    margin: 30px;
+    flex-grow: 1;
+}

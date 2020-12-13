@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- css -->
+    <link rel="stylesheet" href="css/prueba.css">
+    <!-- icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+<body id="myBody">
+    <!-- MY GYM -->
+    <section id="gym" class="container-fluid my-3" class="row">
+        <div class="col-lg-6 col-md-6 col-sm-7 col-xs-7">
+            <h2><i class="material-icons ">
+                    accessibility_new
+                </i>{{title}}</h2>
+            <div class="form-group mt-4">
+                <label for="data_user">Usuario:</label>
+                <div class="d-flex">
+                    <select type="text" id="data_user" name="data_user" v-model="nombre" class="form-control" required>
+                        <option v-bind:value="name" v-for="name of nombres">{{name}}</option>
+                    </select>
+                    <a type="button" class="btn btn-danger ml-2" data-toggle="modal" data-target="#mod1">+</a>
+                </div>
+
+                <form id="form_gym" action="" class="mt-3" method="post">
+                    <div :class="nombre ? '' : ocultar">
+                        <label for="data_gym">Actividad:</label>
+                        <select type="text" id="data_gym" name="data_gym" class="form-control" required>
+                            <option v-for="actividad of actividades">{{actividad}}</option>
+                        </select>
+                    </div>
+            </div>
+            <button type="button" class="btn btn-primary" @click="addActivity">Agregar</button>
+            </form>
+        </div>
+        <h3 class="mt-3">{{nSelec}}</h3>
+        <li v-for="actividad of activities" class="col-lg-6 col-md-6 col-sm-12 mt-3" style="list-style: none;">
+            <div class="alert d-flex justify-content-between align-items-center"
+                :class="[actividad.estado+1 ? 'alert-warning' : 'alert-dark']" role="alert">
+                <div class="p-0 col-9">
+                    <i class="material-icons float-left mr-2 ">
+                        accessibility_new
+                    </i>
+                    <div style="text-transform: capitalize;">
+                        <b>{{actividad.nombre}}</b> : {{estado[actividad.estado]}}
+                    </div>
+                </div>
+                <div class="">
+                    <a class="btn btn-sm material-icons p-0" @click="chEstado(actividad)">
+                        {{check[actividad.estado]}}
+                        <!-- clear -->
+                    </a>
+                    <a class="btn btn-sm material-icons p-0" @click="delActividad(actividad)">
+                        delete
+                    </a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Modal -->
+        <div class="modal fade" id="mod1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title" id="exampleModalLabel">Registro</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- <form id="form_register" action="" class=""> -->
+                            <label for="new_user">Nombre:</label>
+                            <div class="d-flex">
+                                <input type="text" class="form-control" id="new_user" v-model="newUser" v-on:keyup.enter="registrar">
+                                <a type="button" class="btn btn-danger ml-2" href="#"
+                                    @click="registrar" data-dismiss="modal">Registrar</a>
+                            </div>
+                        <!-- </form> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    
+
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+        integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+        integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous">
+    </script>
+    <script src="js/bootstrap.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="js/myVue.js"></script>
+</body>
+
+</html>
